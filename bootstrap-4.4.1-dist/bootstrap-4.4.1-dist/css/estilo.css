@@ -1,0 +1,65 @@
+body{
+font-family: arrial;
+font-size: 17px;
+
+}
+
+#cerrar{
+text-align: right;
+
+
+}
+
+
+nav{
+   
+    height: 30px;
+    padding: 20px;
+}
+
+
+
+nav a{
+    background-color: blue;
+    color: white;
+    font-size: 20px;
+    font-family: Times New Roman;
+    margin-right: 23px;
+    text-decoration: none;
+   
+}
+
+nav a:hover{
+    background-color: green;
+  
+}
+
+button{
+cursor: pointer;
+
+}
+
+#formulario{
+ width: 50%;
+ margin-left: 30%;
+
+}
+
+#formulario input{
+margin-bottom: 5px;
+
+
+
+}
+
+
+#buscar{
+ text-align: right;
+
+
+}
+
+
+
+
+

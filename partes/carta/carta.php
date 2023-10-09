@@ -1,0 +1,109 @@
+<button name="botonc"  type="button" onclick="document.location ='principal.php?da=2'">
+      Ingresar nuevo  plato
+
+</button>
+
+
+<br><br>
+
+
+<div id="buscar">
+
+<form action="principal.php?da=5" method="post">
+
+
+<input type="text" name="buscar" placeholder="Ingrese datos a buscar">
+
+
+    <input type="submit" name="botonbuscar" value="Buscar"> 
+
+
+    <!--<button type="submit" name="botonbuscar">
+ 
+ 
+ <img src="../../img/lupa2.png" width="25" height="25" alt="">
+ 
+ 
+ </button>-->
+
+
+
+</form>
+
+
+
+</div>
+
+
+<br><br>
+
+
+<table border="1" cellspacing="0" width="100%">
+		<tr>
+		<th>Platos</th>
+		<th>Precio</th>
+		<th>Ingredientes</th>
+		<th>Imagenes</th>
+		<th></th>
+		<th></th>
+		</tr>
+	
+		<tr>
+		
+
+<?php
+
+ $consulta = "select *  from carta  order by plato ";
+
+
+$co = new sen ($consulta,$conexion, 'carta');
+
+$co->con();
+
+while($platos=mysqli_fetch_array($co->res)) {
+
+}
+
+
+?>
+
+<tr>
+		<td><?php echo $platos['plato']; ?></td>
+		<td>$ <?php echo number_format($platos['precio'], 2, ',', '.'); ?></td>
+		<td><?php echo $platos['ingred']; ?></td>
+		<td><img src="img/platos/<?php echo $platos['imagen']; ?>" width="100" alt=""></td>
+		
+		<td><a href="principal.php?da=3&lla=<?php echo $platos['plato']; ?>">Editar</a></td>
+		<td><a href="principal.php?da=4&lla=<?php echo $platos['plato']; ?>" onclick="pregunta(<?php echo $platos['id_carta']; ?>, '<?php echo $platos['imagen']; ?>')">Borrar</a></td>
+	</tr>
+<?php } ?>	
+</table>
+		
+
+
+<script>
+
+function pregunta (id,imagen){
+
+if (confirm('¿Esta seguro de borrar el plato de la carta?')) {
+	
+	
+document.location = "principal.php?da=4&lla=" + id	+ "&imagen =" + imagen ;
+	
+}else {
+	
+	document.location = "principal.php?da=2";
+	
+	
+}	
+	
+
+	}
+
+
+
+</script>
+
+
+
+
